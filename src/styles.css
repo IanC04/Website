@@ -2,6 +2,8 @@
     --bg: #fff;
     --text: #111;
     --link: #0366d6;
+    --border: #e6e6e6;
+    --fact-color: #28a745;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -9,6 +11,8 @@
         --bg: #0b0b0c;
         --text: #e6e6e6;
         --link: #58a6ff;
+        --border: #333;
+        --fact-color: #52cc6d;
     }
 }
 
@@ -16,9 +20,76 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    padding: 2rem;
+    padding: 0.5rem 2rem 2rem;
 }
 
 a {
     color: var(--link);
+}
+
+nav {
+    border-bottom: 1px solid var(--border);
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    padding: 0.5rem 0.25rem;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+nav a:hover,
+nav a:focus {
+    color: var(--link);
+    border-bottom-color: var(--link);
+}
+
+#fact-button {
+    display: block;
+    margin: 1.5rem auto;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--bg);
+    background-color: var(--link);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 200ms, background-color 200ms;
+}
+
+#fact-button:hover {
+    background-color: #0256b3;
+    transform: scale(1.05);
+}
+
+#fact-button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#fact-display {
+    min-height: 1.5em;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 1.5rem;
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    background-color: var(--bg);
+    transition: color 250ms;
 }
