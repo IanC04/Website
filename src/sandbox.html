@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="icons/sandbox.ico">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <script src="app.js" async></script>
+    <script src="sandbox.js" defer></script>
+    <title>Sandbox</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="fun-facts.html">Fun Facts</a></li>
+        <li><a href="games.html">Small Games</a></li>
+        <li><a href="sandbox.html">JS Sandbox</a></li>
+    </ul>
+</nav>
+<h1 id="sandbox-title">JavaScript Sandbox</h1>
+<p>Experimenting with different JavaScript features.</p>
+<div class="dashed-panel" id="test-area">
+    <h2>Test Area</h2>
+    <p>
+        You can try out JavaScript commands in the
+        <kbd>developer console</kbd> (<kbd>Ctrl+Shift+J</kbd> or <kbd>⌘+⌥+J</kbd>) or here.
+    </p>
+    <textarea id="code-input" aria-label="JavaScript Code Editor" spellcheck="false">
+console.log("Hello, World!");
+const x = 10;
+const y = 20;
+console.log("Sum: ", x + y);</textarea>
+    <button id="run-code-button">Run Code</button>
+    <h3>Output</h3>
+    <pre id="code-output"></pre>
+</div>
+</body>
+</html>

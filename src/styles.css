@@ -1,15 +1,21 @@
 :root {
     --bg: #fff;
     --text: #111;
+    --inner-bg: #f4f4f4;
+    --inner-text: #333;
     --link: #0366d6;
     --border: #e6e6e6;
     --fact-color: #28a745;
+
+    overflow-y: scroll;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --bg: #0b0b0c;
         --text: #e6e6e6;
+        --inner-bg: #1e1e1e;
+        --inner-text: #d4d4d4;
         --link: #58a6ff;
         --border: #333;
         --fact-color: #52cc6d;
@@ -29,67 +35,128 @@ a {
 
 nav {
     border-bottom: 1px solid var(--border);
+
+    & ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    & a {
+        display: block;
+        padding: 0.5rem 0.25rem;
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        border-bottom: 3px solid transparent;
+        transition: border-color 0.2s, color 0.2s;
+
+        &:hover,
+        &:focus {
+            color: var(--link);
+            border-bottom-color: var(--link);
+        }
+    }
 }
 
-nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    display: block;
-    padding: 0.5rem 0.25rem;
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 500;
-    border-bottom: 3px solid transparent;
-    transition: border-color 0.2s, color 0.2s;
-}
-
-nav a:hover,
-nav a:focus {
-    color: var(--link);
-    border-bottom-color: var(--link);
-}
-
-#fact-button {
+button {
     display: block;
     margin: 1.5rem auto;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
     color: var(--bg);
-    background-color: var(--link);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 200ms, background-color 200ms;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:disabled {
+        background-color: #555 !important;
+        cursor: not-allowed;
+        transform: none;
+    }
 }
 
-#fact-button:hover {
-    background-color: #0256b3;
-    transform: scale(1.05);
+.dashed-panel {
+    text-align: center;
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    background-color: var(--bg);
+    padding: 2rem;
 }
 
-#fact-button:disabled {
-    background-color: #555;
-    cursor: not-allowed;
-    transform: none;
+/* Facts Page */
+#fact-button {
+    background-color: var(--link);
+
+    &:hover {
+        background-color: #0256b3;
+    }
 }
 
 #fact-display {
     min-height: 1.5em;
     font-size: 1.25rem;
     font-weight: 500;
-    text-align: center;
-    padding: 1.5rem;
-    border: 2px dashed var(--border);
-    border-radius: 8px;
-    background-color: var(--bg);
     transition: color 250ms;
+}
+
+/* Sandbox Page */
+@keyframes independent-pulse {
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+.wavy-letter {
+    display: inline-block;
+    animation: independent-pulse 1.5s ease-in-out infinite;
+    --i: 0;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+.test-area {
+    margin-top: 2rem;
+}
+
+#code-input {
+    width: 100%;
+    height: 150px;
+    background-color: var(--inner-bg);
+    color: var(--inner-text);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+#run-code-button {
+    background-color: var(--fact-color);
+
+    &:hover {
+        background-color: #1e7e34;
+    }
+}
+
+#code-output {
+    background-color: var(--border);
+    color: var(--text);
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    min-height: 50px;
+    text-align: left;
 }
