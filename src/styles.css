@@ -6,6 +6,7 @@
     --link: #0366d6;
     --border: #e6e6e6;
     --fact-color: #28a745;
+    --win-color: #dfa615;
 
     overflow-y: scroll;
 }
@@ -19,6 +20,7 @@
         --link: #58a6ff;
         --border: #333;
         --fact-color: #52cc6d;
+        --win-color: #f1c40f;
     }
 }
 
@@ -108,6 +110,79 @@ button {
     font-size: 1.25rem;
     font-weight: 500;
     transition: color 250ms;
+}
+
+/* Games Page */
+.game-pane {
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+#ttt-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 1.5rem 0;
+}
+
+.ttt-cell {
+    display: grid;
+    place-items: center;
+    background-color: var(--border);
+    aspect-ratio: 1;
+    border-radius: 8px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &.x {
+        color: var(--link);
+        pointer-events: none;
+    }
+
+    &.o {
+        color: var(--fact-color);
+        pointer-events: none;
+
+    }
+
+    &.win {
+        background-color: var(--win-color);
+        color: white;
+    }
+}
+
+#reaction-box {
+    display: grid;
+    place-items: center;
+    height: 200px;
+    margin-bottom: 1rem;
+    background-color: var(--link);
+    color: white;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+
+    &.wait {
+        background-color: #dc3545;
+    }
+
+    &.go {
+        background-color: #28a745;
+    }
+}
+
+#reaction-result {
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
 /* Sandbox Page */
