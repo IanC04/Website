@@ -5,7 +5,7 @@ const factButton = document.getElementById('fact-button');
 const factDisplay = document.getElementById('fact-display');
 
 async function loadFacts() {
-    const response = await fetch('data/output/fun-facts.json');
+    const response = await fetch('../data/output/fun-facts.json');
     facts = await response.json();
 
     factButton.disabled = false;
