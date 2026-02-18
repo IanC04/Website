@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="styles.css">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <script src="app.js" async></script>
+    <script src="app.js" defer></script>
     <title>Home</title>
 </head>
 <body>
@@ -17,16 +17,69 @@
         <li><a href="sandbox">JS Sandbox</a></li>
     </ul>
 </nav>
-<h1>Ian Chen</h1>
-<h2>UT Austin CS</h2>
-<h3>Hello - Welcome to my website.</h3>
-<p>This site follows your browser preference for dark or light mode.</p>
-<p>
-    <a target="_blank" rel="noopener noreferrer"
-       href="https://github.com/IanC04/Website">Link</a> to the GitHub repository.
-    This is <a target="_blank" rel="noopener noreferrer"
-               href="https://www.linkedin.com/in/ianchencs">my LinkedIn</a>.
-</p>
-<p><a href="#">A link</a> to scroll to the top.</p>
+<header>
+    <h1>Ian Chen</h1>
+    <h2>UT Austin Computer Science</h2>
+    <p>
+        Welcome to my website. This site follows your browser preference for dark or light mode.
+    </p>
+</header>
+<hr style="margin: 2rem 0; opacity: 0.3;">
+<main>
+    <section id="experience">
+        <h3>Experience</h3>
+        <div class="dashed-panel left">
+            <div class="timeline-item active">
+                <h4>Amazon</h4>
+                <span class="timeline-role">Software Development Engineer Intern</span>
+                <p class="timeline-desc">
+                    Bridged Splunk and AWS IAM models in the Basin datalake.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <h4>Oracle</h4>
+                <span class="timeline-role">Software Engineer Co-op</span>
+                <p class="timeline-desc">
+                    Tested SaaS metrics features of NetSuite Cloud ERP.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <h4>Cirrus Logic</h4>
+                <span class="timeline-role">Software Tools Engineering Intern</span>
+                <p class="timeline-desc">
+                    Handled SoundClear Studio register intents, logging, and pinning.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <h4>Formosa Plastics</h4>
+                <span class="timeline-role">Software Engineer Intern</span>
+                <p class="timeline-desc">
+                    Equipment data analysis with PDF generation and distribution.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="resources">
+        <h3>Resources</h3>
+        <div class="dashed-panel left">
+            <h4><a href="tutorial">Computer Science Handbook</a></h4>
+            <p>
+                A guide for computer science students, covering Java basics, data types,
+                object-oriented programming, and more.
+            </p>
+        </div>
+    </section>
+    <section id="connect">
+        <h3>Connect</h3>
+        <p>
+            You can find my code on the
+            <a target="_blank" rel="noopener noreferrer"
+               href="https://github.com/IanC04/Website">GitHub repository</a>
+            or connect with me on
+            <a target="_blank" rel="noopener noreferrer"
+               href="https://www.linkedin.com/in/ianchencs">LinkedIn</a>.
+        </p>
+    </section>
+</main>
 </body>
 </html>

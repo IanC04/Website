@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../styles.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <script src="../app.js" async></script>
+    <script src="../app.js" defer></script>
     <script src="sandbox.js" defer></script>
     <title>Sandbox</title>
 </head>
@@ -18,22 +18,24 @@
         <li><a href="../sandbox">JS Sandbox</a></li>
     </ul>
 </nav>
-<h1 id="sandbox-title">JavaScript Sandbox</h1>
-<p>Experimenting with different JavaScript features.</p>
-<div class="dashed-panel" id="test-area">
-    <h2>Test Area</h2>
-    <p>
-        You can try out JavaScript commands in the
-        <kbd>developer console</kbd> (<kbd>Ctrl+Shift+J</kbd> or <kbd>⌘+⌥+J</kbd>) or here.
-    </p>
-    <textarea id="code-input" aria-label="JavaScript Code Editor" spellcheck="false">
+<main>
+    <h1 id="sandbox-title">JavaScript Sandbox</h1>
+    <p>Experimenting with different JavaScript features.</p>
+    <div class="dashed-panel" id="test-area">
+        <h2>Test Area</h2>
+        <p>
+            You can try out JavaScript commands in the
+            <kbd>developer console</kbd> (<kbd>Ctrl+Shift+J</kbd> or <kbd>⌘+⌥+J</kbd>) or here.
+        </p>
+        <textarea id="code-input" aria-label="JavaScript Code Editor" spellcheck="false">
 console.log("Hello, World!");
 const x = 10;
 const y = 20;
 console.log("Sum: ", x + y);</textarea>
-    <button id="run-code-button">Run Code</button>
-    <h3>Output</h3>
-    <pre id="code-output"></pre>
-</div>
+        <button id="run-code-button">Run Code</button>
+        <h3>Output</h3>
+        <pre id="code-output"></pre>
+    </div>
+</main>
 </body>
 </html>

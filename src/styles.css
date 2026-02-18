@@ -7,6 +7,8 @@
     --border: #e6e6e6;
     --fact-color: #28a745;
     --win-color: #dfa615;
+    --radius: 8px;
+    --radius-small: 4px;
 
     overflow-y: scroll;
 }
@@ -73,36 +75,66 @@ button {
     font-weight: 600;
     color: var(--bg);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius);
     cursor: pointer;
-    transition: transform 200ms, background-color 200ms;
+    transition: transform 200ms, filter 200ms;
 
     &:hover {
         transform: scale(1.05);
+        filter: brightness(0.8);
     }
 
     &:disabled {
         background-color: #555 !important;
         cursor: not-allowed;
         transform: none;
+        filter: none;
     }
 }
 
 .dashed-panel {
     text-align: center;
     border: 2px dashed var(--border);
-    border-radius: 8px;
+    border-radius: var(--radius);
     background-color: var(--bg);
     padding: 2rem;
+
+    &.left {
+        text-align: left;
+    }
+}
+
+/* Home Page */
+.timeline-item {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--border);
+    margin-bottom: 2rem;
+
+    &.active {
+        border-left-color: var(--link);
+    }
+
+    & h4 {
+        margin: 0;
+    }
+
+    & .timeline-role {
+        display: block;
+        font-size: 0.85rem;
+        opacity: 0.7;
+        margin-bottom: 0.5rem;
+    }
+
+    & .timeline-desc {
+        margin: 0;
+        font-size: 0.95rem;
+    }
 }
 
 /* Facts Page */
 #fact-button {
     background-color: var(--link);
-
-    &:hover {
-        background-color: #0256b3;
-    }
 }
 
 #fact-display {
@@ -130,12 +162,12 @@ button {
     place-items: center;
     background-color: var(--border);
     aspect-ratio: 1;
-    border-radius: 8px;
+    border-radius: var(--radius);
     font-size: 2.5rem;
     font-weight: 800;
     cursor: pointer;
     user-select: none;
-    transition: all 0.2s ease;
+    transition: all 200ms ease;
 
     &:hover {
         opacity: 0.5;
@@ -165,7 +197,7 @@ button {
     margin-bottom: 1rem;
     background-color: var(--link);
     color: white;
-    border-radius: 8px;
+    border-radius: var(--radius);
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
@@ -194,44 +226,55 @@ button {
 
 .wavy-letter {
     display: inline-block;
-    animation: independent-pulse 1.5s ease-in-out infinite;
+    animation: independent-pulse 1500ms ease-in-out infinite;
     --i: 0;
-    animation-delay: calc(var(--i) * 0.1s);
+    animation-delay: calc(var(--i) * 100ms);
 }
 
 .test-area {
     margin-top: 2rem;
 }
 
-#code-input {
+
+#code-input, #code-output {
+    font-family: 'Courier New', monospace;
+    padding: 1rem;
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
     width: 100%;
+}
+
+#code-input {
     height: 150px;
     background-color: var(--inner-bg);
     color: var(--inner-text);
-    font-family: 'Courier New', monospace;
     font-size: 0.9rem;
-    padding: 1rem;
     border: 1px solid var(--border);
-    border-radius: 4px;
     resize: vertical;
-    box-sizing: border-box;
-}
-
-#run-code-button {
-    background-color: var(--fact-color);
-
-    &:hover {
-        background-color: #1e7e34;
-    }
 }
 
 #code-output {
     background-color: var(--border);
     color: var(--text);
-    padding: 1rem;
-    border-radius: 4px;
-    font-family: 'Courier New', monospace;
     white-space: pre-wrap;
     min-height: 50px;
     text-align: left;
+}
+
+#run-code-button {
+    background-color: var(--fact-color);
+}
+
+/* Tutorial Page */
+.back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text);
+    transition: color 200ms;
+
+    &:hover {
+        color: var(--link);
+    }
 }

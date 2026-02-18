@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../styles.css">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <script src="../app.js" async></script>
+    <script src="../app.js" defer></script>
     <script src="fun-facts.js" defer></script>
     <title>Fun Facts</title>
 </head>
@@ -18,10 +18,12 @@
         <li><a href="../sandbox">JS Sandbox</a></li>
     </ul>
 </nav>
-<h1>Fun Facts</h1>
-<button id="fact-button" disabled>Loading Facts...</button>
-<div class="dashed-panel" id="fact-display">
-    Click the button for a fun fact.
-</div>
+<main>
+    <h1>Fun Facts</h1>
+    <button id="fact-button" disabled>Loading Facts...</button>
+    <div class="dashed-panel" id="fact-display">
+        Click the button for a fun fact.
+    </div>
+</main>
 </body>
 </html>
